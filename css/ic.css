@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.cell {
+    text-align: center;
+    min-width: 77px;
+    padding: 2px;
+}
+
+.minCell {
+    min-width: 10px;
+    padding: 2px;
+}
+
+.chordButton {
+    width: 70px;
+    height: 30px;
+}
+
+#settings {
+    margin-top: 10px;
+    padding: 2px;
+}
