@@ -1,3 +1,4 @@
+// コード名称
 const chordNames = [
     "C", "Cm", "Cmb5",
     "Cs", "Csm", "Csmb5",
@@ -22,6 +23,7 @@ const chordNames = [
     "Bb", "Bbm", "Bbmb5",
 ];
 
+// コード名と構成音の配列のマップ
 const chordMap = {
     // C
     //C: ["C3"],
@@ -41,7 +43,7 @@ const chordMap = {
     Dsm: ["D#3", "A#3", "D#4", "F#4"],
     Dsmb5: ["D#3", "A3", "D#4", "F#4"],
     // Db
-    Db: [],
+    Db: ["Db3", "F3", "Ab3", "Db4", "F4"],
     Dbm: [],
     // E
     E: ["E2", "B2", "E3", "G#3", "B3", "E4"],
@@ -50,7 +52,7 @@ const chordMap = {
     Es: [],
     Esm: [],
     // Eb
-    Eb: [],
+    Eb: ["Eb3", "Bb3", "Eb4", "G4"],
     Ebm: [],
     // F
     F: ["F2", "C3", "F3", "A3", "C4", "F4"],
@@ -64,6 +66,7 @@ const chordMap = {
     // G
     G: ["G2", "B2", "D3", "G3", "B3", "G4"],
     Gm: ["G2", "Bb2", "D3", "G3", "D4", "G4"],
+    Gmb5: ["G2", "Db3", "G3", "Bb3"],
     // Gs
     Gs: ["G#2", "D#3", "G#3", "C4", "D#4", "G#4"],
     Gsm: ["G#2", "D#3", "G#3", "B3", "D#4", "G#4"],
@@ -77,7 +80,7 @@ const chordMap = {
     As: [],
     Asm: [],
     // Ab
-    Ab: [],
+    Ab: ["Ab2", "Eb3", "Ab3", "C4", "Eb4", "Ab4"],
     Abm: [],
     // B
     B: ["B2", "F#3", "B3", "D#4", "F#4"],
@@ -88,8 +91,11 @@ const chordMap = {
     Bsm: [],
     // Bb
     Bb: [],
-    Bbm: [],
+    Bbm: ["Bb2", "F3", "Bb3", "Db4", "F4"],
 };
+
+// play関数の中で利用されるシンセサイザー
+const polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
 
 window.addEventListener("load", () => {
     chordNames.forEach(name => {
@@ -104,6 +110,5 @@ window.addEventListener("load", () => {
 });
 
 function play(noteNames) {
-    const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-    synth.triggerAttackRelease(noteNames, "4n");
+    polySynth.triggerAttackRelease(noteNames, "8n");
 }
