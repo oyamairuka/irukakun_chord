@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>株式会社イルカくん TOPページ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
     <link href="./css/ic.css" rel="stylesheet">
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script src="./js/ic.js" defer></script>
 </head>
 
 <body>
@@ -21,41 +26,157 @@
         <div class="cell">C</div>
         <div class="cell"><button name="C" class="chordButton">C</button></div>
         <div class="cell"><button name="Dm" class="chordButton">Dm</button></div>
-        <div class="cell"><button name="Em" class="chordButton">Em</div>
+        <div class="cell"><button name="Em" class="chordButton">Em</button></div>
         <div class="cell"><button name="F" class="chordButton">F</button></div>
         <div class="cell"><button name="G" class="chordButton">G</button></div>
-        <div class="cell"><button name="Am" class="chordButton">Am</div>
-        <div class="cell"><button name="Bmb5" class="chordButton">Bm-5</div>
+        <div class="cell"><button name="Am" class="chordButton">Am</button></div>
+        <div class="cell"><button name="Bmb5" class="chordButton">Bm-5</button></div>
     </div>
     <div id="cm_scale" class="container">
         <div class="cell">Cm</div>
         <div class="cell"><button name="Cm" class="chordButton">Cm</button></div>
         <div class="cell"><button name="Dmb5" class="chordButton">Dm-5</button></div>
-        <div class="cell"><button name="Eb" class="chordButton">Eb</div>
+        <div class="cell"><button name="Eb" class="chordButton">Eb</button></div>
         <div class="cell"><button name="Fm" class="chordButton">Fm</button></div>
         <div class="cell"><button name="Gm" class="chordButton">Gm</button></div>
-        <div class="cell"><button name="Ab" class="chordButton">Ab</div>
-        <div class="cell"><button name="Bb" class="chordButton">Bb</div>
+        <div class="cell"><button name="Ab" class="chordButton">Ab</button></div>
+        <div class="cell"><button name="Bb" class="chordButton">Bb</button></div>
+    </div>
+    <div id="d_scale" class="container">
+        <div class="cell">D</div>
+        <div class="cell"><button name="D" class="chordButton">D</button></div>
+        <div class="cell"><button name="Em" class="chordButton">Em</button></div>
+        <div class="cell"><button name="Fsm" class="chordButton">F#m</button></div>
+        <div class="cell"><button name="G" class="chordButton">G</button></div>
+        <div class="cell"><button name="A" class="chordButton">A</button></div>
+        <div class="cell"><button name="Bm" class="chordButton">Bm</button></div>
+        <div class="cell"><button name="Csmb5" class="chordButton">Csm-5</button></div>
+    </div>
+    <div id="dm_scale" class="container">
+        <div class="cell">Dm</div>
+        <div class="cell"><button name="Dm" class="chordButton">Dm</button></div>
+        <div class="cell"><button name="Emb5" class="chordButton">Emb5</button></div>
+        <div class="cell"><button name="F" class="chordButton">F</button></div>
+        <div class="cell"><button name="Gm" class="chordButton">Gm</button></div>
+        <div class="cell"><button name="Am" class="chordButton">Am</button></div>
+        <div class="cell"><button name="Bb" class="chordButton">Bb</button></div>
+        <div class="cell"><button name="C" class="chordButton">C</button></div>
     </div>
     <div id="e_scale" class="container">
         <div class="cell">E</div>
         <div class="cell"><button name="E" class="chordButton">E</button></div>
         <div class="cell"><button name="Fsm" class="chordButton">F#m</button></div>
-        <div class="cell"><button name="Gsm" class="chordButton">G#m</div>
+        <div class="cell"><button name="Gsm" class="chordButton">G#m</button></div>
         <div class="cell"><button name="A" class="chordButton">A</button></div>
         <div class="cell"><button name="B" class="chordButton">B</button></div>
-        <div class="cell"><button name="Csm" class="chordButton">C#m</div>
-        <div class="cell"><button name="Dsmb5" class="chordButton">D#m-5</div>
+        <div class="cell"><button name="Csm" class="chordButton">C#m</button></div>
+        <div class="cell"><button name="Dsmb5" class="chordButton">D#m-5</button></div>
+    </div>
+    <div id="f_scale" class="container">
+        <div class="cell">E</div>
+        <div class="cell"><button name="F" class="chordButton">F</button></div>
+        <div class="cell"><button name="Gm" class="chordButton">Gm</button></div>
+        <div class="cell"><button name="Am" class="chordButton">Am</button></div>
+        <div class="cell"><button name="Bb" class="chordButton">Bb</button></div>
+        <div class="cell"><button name="C" class="chordButton">C</button></div>
+        <div class="cell"><button name="Dm" class="chordButton">Dm</button></div>
+        <div class="cell"><button name="Emb5" class="chordButton">Emb5</button></div>
     </div>
     <div id="ab_scale" class="container">
         <div class="cell">Ab</div>
         <div class="cell"><button name="Ab" class="chordButton">Ab</button></div>
         <div class="cell"><button name="Bbm" class="chordButton">Bbm</button></div>
-        <div class="cell"><button name="Cm" class="chordButton">Cm</div>
+        <div class="cell"><button name="Cm" class="chordButton">Cm</button></div>
         <div class="cell"><button name="Db" class="chordButton">Db</button></div>
         <div class="cell"><button name="Eb" class="chordButton">Eb</button></div>
-        <div class="cell"><button name="Fm" class="chordButton">Fm</div>
-        <div class="cell"><button name="Gmb5" class="chordButton">Gmb5</div>
+        <div class="cell"><button name="Fm" class="chordButton">Fm</button></div>
+        <div class="cell"><button name="Gmb5" class="chordButton">Gmb5</button></div>
+    </div>
+    <div id="chordBox">
+        <div class="container">
+            <div class="cell">C</div>
+            <div class="cell"><button name="C" class="chordBoxButton">C</button></div>
+            <div class="cell"><button name="Cm" class="chordBoxButton">Cm</button></div>
+            <div class="cell"><button name="Cmb5" class="chordBoxButton">Cmb5</button></div>
+            <div class="cell"><button name="Cs" class="chordBoxButton">C#</button></div>
+            <div class="cell"><button name="Csm" class="chordBoxButton">C#m</button></div>
+            <div class="cell"><button name="Csmb5" class="chordBoxButton">C#mb5</button></div>
+            <div class="cell"><button name="Cb" class="chordBoxButton">Cb</button></div>
+            <div class="cell"><button name="Cbm" class="chordBoxButton">Cbm</button></div>
+            <div class="cell"><button name="Cbmb5" class="chordBoxButton">Cbmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">D</div>
+            <div class="cell"><button name="D" class="chordBoxButton">D</button></div>
+            <div class="cell"><button name="Dm" class="chordBoxButton">Dm</button></div>
+            <div class="cell"><button name="Dmb5" class="chordBoxButton">Dmb5</button></div>
+            <div class="cell"><button name="Ds" class="chordBoxButton">D#</button></div>
+            <div class="cell"><button name="Dsm" class="chordBoxButton">D#m</button></div>
+            <div class="cell"><button name="Dsmb5" class="chordBoxButton">D#mb5</button></div>
+            <div class="cell"><button name="Db" class="chordBoxButton">Db</button></div>
+            <div class="cell"><button name="Dbm" class="chordBoxButton">Dbm</button></div>
+            <div class="cell"><button name="Dbmb5" class="chordBoxButton">Dbmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">E</div>
+            <div class="cell"><button name="E" class="chordBoxButton">E</button></div>
+            <div class="cell"><button name="Em" class="chordBoxButton">Em</button></div>
+            <div class="cell"><button name="Emb5" class="chordBoxButton">Emb5</button></div>
+            <div class="cell"><button name="Es" class="chordBoxButton">E#</button></div>
+            <div class="cell"><button name="Esm" class="chordBoxButton">E#m</button></div>
+            <div class="cell"><button name="Esmb5" class="chordBoxButton">E#mb5</button></div>
+            <div class="cell"><button name="Eb" class="chordBoxButton">Eb</button></div>
+            <div class="cell"><button name="Ebm" class="chordBoxButton">Ebm</button></div>
+            <div class="cell"><button name="Ebmb5" class="chordBoxButton">Ebmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">F</div>
+            <div class="cell"><button name="F" class="chordBoxButton">F</button></div>
+            <div class="cell"><button name="Fm" class="chordBoxButton">Fm</button></div>
+            <div class="cell"><button name="Fmb5" class="chordBoxButton">Fmb5</button></div>
+            <div class="cell"><button name="Fs" class="chordBoxButton">F#</button></div>
+            <div class="cell"><button name="Fsm" class="chordBoxButton">F#m</button></div>
+            <div class="cell"><button name="Fsmb5" class="chordBoxButton">F#mb5</button></div>
+            <div class="cell"><button name="Fb" class="chordBoxButton">Fb</button></div>
+            <div class="cell"><button name="Fbm" class="chordBoxButton">Fbm</button></div>
+            <div class="cell"><button name="Fbmb5" class="chordBoxButton">Fbmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">G</div>
+            <div class="cell"><button name="G" class="chordBoxButton">G</button></div>
+            <div class="cell"><button name="Gm" class="chordBoxButton">Gm</button></div>
+            <div class="cell"><button name="Gmb5" class="chordBoxButton">Gmb5</button></div>
+            <div class="cell"><button name="Gs" class="chordBoxButton">G#</button></div>
+            <div class="cell"><button name="Gsm" class="chordBoxButton">G#m</button></div>
+            <div class="cell"><button name="Gsmb5" class="chordBoxButton">G#mb5</button></div>
+            <div class="cell"><button name="Gb" class="chordBoxButton">Gb</button></div>
+            <div class="cell"><button name="Gbm" class="chordBoxButton">Gbm</button></div>
+            <div class="cell"><button name="Gbmb5" class="chordBoxButton">Gbmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">A</div>
+            <div class="cell"><button name="A" class="chordBoxButton">A</button></div>
+            <div class="cell"><button name="Am" class="chordBoxButton">Am</button></div>
+            <div class="cell"><button name="Amb5" class="chordBoxButton">Amb5</button></div>
+            <div class="cell"><button name="As" class="chordBoxButton">A#</button></div>
+            <div class="cell"><button name="Asm" class="chordBoxButton">A#m</button></div>
+            <div class="cell"><button name="Asmb5" class="chordBoxButton">A#mb5</button></div>
+            <div class="cell"><button name="Ab" class="chordBoxButton">Ab</button></div>
+            <div class="cell"><button name="Abm" class="chordBoxButton">Abm</button></div>
+            <div class="cell"><button name="Abmb5" class="chordBoxButton">Abmb5</button></div>
+        </div>
+        <div class="container">
+            <div class="cell">B</div>
+            <div class="cell"><button name="B" class="chordBoxButton">B</button></div>
+            <div class="cell"><button name="Bm" class="chordBoxButton">Bm</button></div>
+            <div class="cell"><button name="Bmb5" class="chordBoxButton">Bmb5</button></div>
+            <div class="cell"><button name="Bs" class="chordBoxButton">B#</button></div>
+            <div class="cell"><button name="Bsm" class="chordBoxButton">B#m</button></div>
+            <div class="cell"><button name="Bsmb5" class="chordBoxButton">B#mb5</button></div>
+            <div class="cell"><button name="Bb" class="chordBoxButton">Bb</button></div>
+            <div class="cell"><button name="Bbm" class="chordBoxButton">Bbm</button></div>
+            <div class="cell"><button name="Bbmb5" class="chordBoxButton">Bbmb5</button></div>
+        </div>
     </div>
     <div id="settings">
         <div class="container">
@@ -73,8 +194,6 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
-    <script src="./js/ic.js"></script>
 </body>
 
 </html>
