@@ -111,21 +111,103 @@ const chordMap = {
     Bbmb5: ["Bb2", "E3", "Bb3", "Db4"],
 };
 
+// 調と音階のマップ
+const scaleMap = {
+    Cb: ["Cb", "Dbm", "Ebm", "Fb", "Gb", "Abm", "Bbmb5"],
+    C: ["C", "Dm", "Em", "F", "G", "Am", "Bmb5"],
+    Cs: ["Cs", "Dsm", "Esm", "Fs", "Gs", "Asm", "Bsmb5"],
+    Db: ["Db", "Ebm", "Fm", "Gb", "Ab", "Bbm", "Cmb5"],
+    D: ["D", "Em", "Fsm", "G", "A", "Bm", "Csmb5"],
+    Eb: ["Eb", "Fm", "Gm", "Ab", "Bb", "Cm", "Dmb5"],
+    E: ["E", "Fsm", "Gsm", "A", "B", "Csm", "Dsmb5"],
+    F: ["F", "Gm", "Am", "Bb", "C", "Dm", "Emb5"],
+    Fs: ["Fs", "Gsm", "Asm", "B", "Cs", "Dsm", "Esmb5"],
+    Gb: ["Gb", "Abm", "Bbm", "Cb", "Db", "Ebm", "Fmb5"],
+    G: ["G", "Am", "Bm", "C", "D", "Em", "Fsmb5"],
+    Ab: ["Ab", "Bbm", "Cm", "Db", "Eb", "Fm", "Gmb5"],
+    A: ["A", "Bm", "Csm", "D", "E", "Fsm", "Gsmb5"],
+    Bb: ["Bb", "Cm", "Dm", "Eb", "F", "Gm", "Amb5"],
+    B: ["B", "Csm", "Dsm", "E", "Fs", "Gsm", "Asmb5"],
+    Cm: ["Cm", "Dmb5", "Eb", "Fm", "Gm", "Ab", "Bb"],
+    Cms: ["Csm", "Dsmb5", "E", "Fsm", "Gsm", "A", "B"],
+    Dm: ["Dm", "Emb5", "F", "Gm", "Am", "Bb", "C"],
+    Dms: ["Dsm", "Esmb5", "Fs", "Gsm", "Asm", "B", "Cs"],
+    Emb: ["Ebm", "Fmb5", "Gb", "Abm", "Bbm", "Cb", "Db"],
+    Em: ["Em", "Fsmb5", "G", "Am", "Bm", "C", "D"],
+    Fm: ["Fm", "Gmb5", "Ab", "Bbm", "Cm", "Db", "Eb"],
+    Fms: ["Fsm", "Gsmb5", "A", "Bm", "Csm", "D", "E"],
+    Gm: ["Gm", "Amb5", "Bb", "Cm", "Dm", "Eb", "F"],
+    Gms: ["Gsm", "Asmb5", "B", "Csm", "Dsm", "E", "Fs"],
+    Amb: ["Abm", "Bbmb5", "Cb", "Dbm", "Ebm", "Fb", "Gb"],
+    Am: ["Am", "Bmb5", "C", "Dm", "Em", "F", "G"],
+    Ams: ["Asm", "Bsmb5", "Cs", "Dsm", "Esm", "Fs", "Gs"],
+    Bmb: ["Bbm", "Cmb5", "Db", "Ebm", "Fm", "Gb", "Ab"],
+    Bm: ["Bm", "Csmb5", "D", "Em", "Fsm", "G", "A"],
+};
+
 // play関数の中で利用されるシンセサイザー
 const polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
 
-window.addEventListener("load", () => {
-    chordNames.forEach(name => {
-        const buttons = document.getElementsByName(name);
-        buttons.forEach(button => {
-            button.onclick = async () => {
-                await Tone.start();
-                play(chordMap[name]);
-            };
+/* 初期化処理 */
+function initialize() {
+
+    // イベント設定
+    document.getElementById('major_scale_select').addEventListener('change', (e) => {
+        setScale(e, 'selected_major_scale');
+    });
+    document.getElementById('minor_scale_select').addEventListener('change', (e) => {
+        setScale(e, 'selected_minor_scale');
+    });
+
+    window.addEventListener("load", () => {
+        chordNames.forEach(name => {
+            const buttons = document.getElementsByName(name);
+            buttons.forEach(button => {
+                button.onclick = async () => {
+                    await Tone.start();
+                    play(chordMap[name]);
+                };
+            });
         });
     });
-});
+
+    // 調の初期値
+    document.getElementById('major_scale_select').value = 'C';
+    document.getElementById('major_scale_select').dispatchEvent(new Event('change'));
+    document.getElementById('minor_scale_select').value = 'Am';
+    document.getElementById('minor_scale_select').dispatchEvent(new Event('change'));
+
+}
 
 function play(noteNames) {
     polySynth.triggerAttackRelease(noteNames, "8n");
 }
+
+function setScale(event, id) {
+    // 子要素を全て削除
+    while (document.getElementById(id).firstChild) {
+        document.getElementById(id).removeChild(document.getElementById(id).firstChild)
+    }
+    // 調の名称を追加
+    let h = document.createElement('div');
+    h.classList.add('cell');
+    h.textContent = event.target.options[event.target.selectedIndex].textContent;
+    document.getElementById(id).appendChild(h);
+    // コードボタンを追加
+    scaleMap[event.target.value].forEach(e => {
+        let d = document.createElement('div');
+        d.classList.add('cell');
+        let prot = document.getElementsByName(e)[0];
+        let b = prot.cloneNode(true);
+        b.classList.remove('chordBoxButton');
+        b.classList.add('chordButton');
+        b.onclick = async () => {
+            await Tone.start();
+            play(chordMap[b.name]);
+        };
+        d.appendChild(b);
+        document.getElementById(id).appendChild(d);
+    });
+}
+
+initialize();

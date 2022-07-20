@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 20px 0px 20px 0px;
 }
 
 #settings {
