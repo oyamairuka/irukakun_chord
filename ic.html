@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
     <link href="./css/ic.css" rel="stylesheet">
     <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script src="./js/const.js" defer></script>
     <script src="./js/ic.js" defer></script>
+    <script src="./js/keyboard.js" defer></script>
 </head>
 
 <body>
@@ -154,6 +156,12 @@
                     <option value="Bm">Bm</option>
                 </select>
             </div>
+        </div>
+        <div>
+            <input type="radio" id="major_radio" , name="major_or_minor" value="0" checked>
+            <label for="major_radio">メジャー</label>
+            <input type="radio" id="minor_radio" , name="major_or_minor" value="1">
+            <label for="minor_radio">マイナー</label>
         </div>
     </div>
 

@@ -1,3 +1,7 @@
+body {
+    background-color: darkgrey;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -17,6 +21,8 @@
 .chordButton {
     width: 70px;
     height: 30px;
+    background-color: rgb(245, 245, 233);
+    color: #000000;
 }
 
 .chordBoxButton {
@@ -24,6 +30,10 @@
     height: 30px;
     background-color: rgb(211, 238, 238);
     color: #000000;
+}
+
+.clicked {
+    background-color: #0366D6;
 }
 
 #chordBox {
