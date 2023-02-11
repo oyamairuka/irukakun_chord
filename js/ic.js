@@ -1,6 +1,9 @@
 // play関数の中で利用されるシンセサイザー
 const polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
 
+var now = null;
+var currentNoteNames = null;
+
 /* 初期化処理 */
 function initialize() {
 
@@ -13,15 +16,7 @@ function initialize() {
     });
 
     window.addEventListener("load", () => {
-        chordNames.forEach(name => {
-            const buttons = document.getElementsByName(name);
-            buttons.forEach(button => {
-                button.onclick = async () => {
-                    await Tone.start();
-                    play(chordMap[name]);
-                };
-            });
-        });
+        setChordButtonEvent();
     });
 
     // 調の初期値
@@ -33,7 +28,15 @@ function initialize() {
 }
 
 function play(noteNames) {
-    polySynth.triggerAttackRelease(noteNames, "8n");
+    now = Tone.now();
+    polySynth.triggerAttack(noteNames, now);
+    currentNoteNames = noteNames;
+}
+
+function stop() {
+    console.log(currentNoteNames);
+    if (currentNoteNames) polySynth.triggerRelease(currentNoteNames, now + 0.5);
+    currentNoteNames = null
 }
 
 function setScale(event, id, isMinor) {
@@ -66,6 +69,21 @@ function setScale(event, id, isMinor) {
         };
         d.appendChild(b);
         document.getElementById(id).appendChild(d);
+    });
+
+    setChordButtonEvent();
+}
+
+function setChordButtonEvent() {
+    chordNames.forEach(name => {
+        const buttons = document.getElementsByName(name);
+        buttons.forEach(button => {
+            button.onclick = async () => {
+                await Tone.start();
+                stop();
+                play(chordMap[name]);
+            };
+        });
     });
 }
 
