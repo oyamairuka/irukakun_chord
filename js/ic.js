@@ -34,9 +34,12 @@ function play(noteNames) {
 }
 
 function stop() {
-    console.log(currentNoteNames);
     if (currentNoteNames) polySynth.triggerRelease(currentNoteNames, now + 0.5);
     currentNoteNames = null
+}
+
+function clearChordProgression() {
+    document.getElementById('chordProgression').innerHTML = "";
 }
 
 function setScale(event, id, isMinor) {
@@ -58,6 +61,7 @@ function setScale(event, id, isMinor) {
         let b = prot.cloneNode(true);
         b.classList.remove('chordBoxButton');
         b.classList.add('chordButton');
+        // 生成したコードボタンにidを設定
         b.id = 'chord' + String(no);
         if (isMinor) {
             b.id = 'm' + b.id;

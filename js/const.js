@@ -155,4 +155,6 @@ const keyboardMap = {
     chord6: 'k',
     chord7: 'l',
     major_or_minor: 'm',
+    stopButton: 'q',
+    clearButton: 'c'
 };
