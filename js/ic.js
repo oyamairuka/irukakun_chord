@@ -28,9 +28,11 @@ function initialize() {
 }
 
 function play(noteNames) {
-    now = Tone.now();
-    polySynth.triggerAttack(noteNames, now);
-    currentNoteNames = noteNames;
+    if (noteNames) {
+        now = Tone.now();
+        polySynth.triggerAttack(noteNames, now);
+        currentNoteNames = noteNames;
+    }
 }
 
 function stop() {
@@ -67,10 +69,6 @@ function setScale(event, id, isMinor) {
             b.id = 'm' + b.id;
         }
         no++;
-        b.onclick = async () => {
-            await Tone.start();
-            play(GetNoteNames(b.name));
-        };
         d.appendChild(b);
         document.getElementById(id).appendChild(d);
     });
@@ -86,9 +84,10 @@ function setChordButtonEvent() {
                 clearButtonCss();
                 await Tone.start();
                 stop();
-                play(GetNoteNames(name));
+                var chordName = GetChordName(name);
+                play(chordMap[chordName]);
                 button.classList.add('clicked');
-                addChordProgression(name);
+                addChordProgression(chordName);
             };
         });
     });
@@ -109,9 +108,60 @@ function addChordProgression(chordName) {
     document.getElementById('chordProgression').innerHTML += save;
 }
 
-function GetNoteNames(baseChordName) {
+function GetChordName(baseChordName) {
     // TODO: 追加の和音も含めて構成音を判断する
-    return chordMap[baseChordName];
+    let elements = document.getElementsByName('add_chord');
+    let len = elements.length;
+    let checkValue = '';
+    for (let i = 0; i < len; i++) {
+        if (elements.item(i).checked) {
+            checkValue = elements.item(i).value;
+            break;
+        }
+    }
+    var result = baseChordName;
+    switch (checkValue) {
+        case 'rdaug':
+            break;
+        case 'rd7':
+            result += '7';
+            break;
+        case 'rdmaj7':
+            break;
+        case 'rd6':
+            break;
+        case 'rd9':
+            break;
+        case 'rdmaj9':
+            break;
+        case 'rd11':
+            break;
+        case 'rdmaj11':
+            break;
+        case 'rd13':
+            break;
+        case 'rdmaj13':
+            break;
+        case 'rdadd9':
+            break;
+        case 'rd69':
+            break;
+        case 'rd7b5':
+            break;
+        case 'rd7b9':
+            break;
+        case 'rd7s9':
+            break;
+        case 'rd5':
+            break;
+        case 'rdsus4':
+            break;
+        case 'rdsus2':
+            break;
+        case 'rd7sus4':
+            break;
+    }
+    return result;
 }
 
 initialize();
