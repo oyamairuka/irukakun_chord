@@ -12,15 +12,19 @@ function keydown(event) {
         if (keyboardMap[keys[i]] == event.key) {
             if (document.getElementById(keys[i])) {
                 let element = document.getElementById(keys[i]);
+                let id = keys[i];
                 if (element.type == 'button' || element.type == 'reset' || element.type == 'submit') {
-                    let id = keys[i];
                     if (document.getElementById('minor_radio').checked) {
                         id = 'm' + id;
                     }
                     document.getElementById(id).dispatchEvent(new Event('click'));
                 }
+                else if (element.type == 'radio') {
+                    document.getElementById(id).checked = true;
+                }
             }
             else if (document.getElementsByName(keys[i])) {
+                // メジャーマイナー切り替え処理
                 let elements = document.getElementsByName(keys[i]);
                 let isRadio = false;
                 elements.forEach(e => {

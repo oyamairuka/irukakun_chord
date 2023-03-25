@@ -147,6 +147,7 @@ const scaleMap = {
 
 // キーボードと和音のマッピング
 const keyboardMap = {
+    // コードボタン
     chord1: 'a',
     chord2: 's',
     chord3: 'd',
@@ -154,7 +155,31 @@ const keyboardMap = {
     chord5: 'j',
     chord6: 'k',
     chord7: 'l',
+    // メジャーマイナー切り替え
     major_or_minor: 'm',
+    // ストップボタン
     stopButton: 'q',
-    clearButton: 'c'
+    // クリアボタン
+    clearButton: 'c',
+    // 追加のコード
+    rdnone: '1',
+    rdaug: 't',
+    rd7: '7',
+    rdmaj7: 'u',
+    rd6: '6',
+    rd9: '9',
+    rdmaj9: 'o',
+    rd11: '-',
+    rdmaj11: '^',
+    rd13: '3',
+    rdmaj13: 'e',
+    rdadd9: '0',
+    rd69: '8',
+    rd7b5: 'y',
+    rd7b9: 'p',
+    rd7s9: ';',
+    rd5: '5',
+    rdsus4: '4',
+    rdsus2: '2',
+    rd7sus4: 'i'
 };
