@@ -69,7 +69,7 @@ function setScale(event, id, isMinor) {
         no++;
         b.onclick = async () => {
             await Tone.start();
-            play(chordMap[b.name]);
+            play(GetNoteNames(b.name));
         };
         d.appendChild(b);
         document.getElementById(id).appendChild(d);
@@ -86,7 +86,7 @@ function setChordButtonEvent() {
                 clearButtonCss();
                 await Tone.start();
                 stop();
-                play(chordMap[name]);
+                play(GetNoteNames(name));
                 button.classList.add('clicked');
                 addChordProgression(name);
             };
@@ -107,6 +107,11 @@ function addChordProgression(chordName) {
     var save = chordName;
     if (document.getElementById('chordProgression').innerHTML) { save = " → " + chordName; }
     document.getElementById('chordProgression').innerHTML += save;
+}
+
+function GetNoteNames(baseChordName) {
+    // TODO: 追加の和音も含めて構成音を判断する
+    return chordMap[baseChordName];
 }
 
 initialize();

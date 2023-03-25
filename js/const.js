@@ -24,6 +24,7 @@ const chordNames = [
 ];
 
 // コード名と構成音の配列のマップ
+// TODO: 追加の和音分を加える
 const chordMap = {
     // C
     C: ["C3", "E3", "G3", "C4", "E4"],
