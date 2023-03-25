@@ -17,9 +17,7 @@ function keydown(event) {
                     if (document.getElementById('minor_radio').checked) {
                         id = 'm' + id;
                     }
-                    clearButtonCss();
                     document.getElementById(id).dispatchEvent(new Event('click'));
-                    document.getElementById(id).classList.add('clicked');
                 }
             }
             else if (document.getElementsByName(keys[i])) {
@@ -55,15 +53,6 @@ function toggle(radioButtons) {
     if (flag) {
         radioButtons[0].checked = true;
     }
-}
-
-function clearButtonCss() {
-    chordNames.forEach(name => {
-        const buttons = document.getElementsByName(name);
-        buttons.forEach(button => {
-            button.classList.remove('clicked');
-        });
-    });
 }
 
 initialize();

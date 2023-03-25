@@ -79,10 +79,21 @@ function setChordButtonEvent() {
         const buttons = document.getElementsByName(name);
         buttons.forEach(button => {
             button.onclick = async () => {
+                clearButtonCss();
                 await Tone.start();
                 stop();
                 play(chordMap[name]);
+                button.classList.add('clicked');
             };
+        });
+    });
+}
+
+function clearButtonCss() {
+    chordNames.forEach(name => {
+        const buttons = document.getElementsByName(name);
+        buttons.forEach(button => {
+            button.classList.remove('clicked');
         });
     });
 }
