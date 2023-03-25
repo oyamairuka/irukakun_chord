@@ -54,3 +54,16 @@ body {
     margin-top: 10px;
     padding: 2px;
 }
+
+#chordProgressionBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0px 20px 0px;
+}
+
+#chordProgression{
+    font-size: 16px;
+    max-width: 60%;
+}

@@ -84,6 +84,7 @@ function setChordButtonEvent() {
                 stop();
                 play(chordMap[name]);
                 button.classList.add('clicked');
+                addChordProgression(name);
             };
         });
     });
@@ -96,6 +97,12 @@ function clearButtonCss() {
             button.classList.remove('clicked');
         });
     });
+}
+
+function addChordProgression(chordName) {
+    var save = chordName;
+    if (document.getElementById('chordProgression').innerHTML) { save = " → " + chordName; }
+    document.getElementById('chordProgression').innerHTML += save;
 }
 
 initialize();
