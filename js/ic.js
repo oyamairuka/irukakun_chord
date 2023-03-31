@@ -86,8 +86,10 @@ function setChordButtonEvent() {
                 stop();
                 var chordName = GetChordName(name);
                 play(chordMap[chordName]);
-                button.classList.add('clicked');
-                addChordProgression(chordName);
+                if (chordMap[chordName]) {
+                    button.classList.add('clicked');
+                    addChordProgression(chordName);
+                }
             };
         });
     });
@@ -122,6 +124,7 @@ function GetChordName(baseChordName) {
     var result = baseChordName;
     switch (checkValue) {
         case 'rdaug':
+            result += 'aug';
             break;
         case 'rd7':
             result += '7';
