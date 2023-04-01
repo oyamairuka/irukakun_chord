@@ -130,38 +130,55 @@ function GetChordName(baseChordName) {
             result += '7';
             break;
         case 'rdmaj7':
+            result += 'maj7';
             break;
         case 'rd6':
+            result += '6';
             break;
         case 'rd9':
+            result += '9';
             break;
         case 'rdmaj9':
+            result += 'maj9';
             break;
         case 'rd11':
+            result += '11';
             break;
         case 'rdmaj11':
+            result += 'maj11';
             break;
         case 'rd13':
+            result += '13';
             break;
         case 'rdmaj13':
+            result += 'maj13';
             break;
         case 'rdadd9':
+            result += 'add9';
             break;
         case 'rd69':
+            result += '69';
             break;
         case 'rd7b5':
+            result += '7b5';
             break;
         case 'rd7b9':
+            result += '7b9';
             break;
         case 'rd7s9':
+            result += '7s9';
             break;
         case 'rd5':
+            result += '5';
             break;
         case 'rdsus4':
+            result += 'sus4';
             break;
         case 'rdsus2':
+            result += 'sus2';
             break;
         case 'rd7sus4':
+            result += '7sus4';
             break;
     }
     return result;
