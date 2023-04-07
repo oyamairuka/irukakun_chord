@@ -36,6 +36,7 @@ const chordMap = {
     Cmb57: ["Gb4", "C4", "A3", "Eb3", "C3"],
     C5: ["C3", "G3", "C4"],
     Csus4: ["F4", "C4", "G3", "F3", "C3"],
+    Csus2: ["C3", "D3", "G3", "D4", "G4"],
     // Cs
     Cs: ["C#3", "E#3", "G#3", "C#4", "E#4"],
     Csm: ["C#3", "G#3", "C#4", "E4", "G#4"],
@@ -43,6 +44,7 @@ const chordMap = {
     Csaug: ["A4", "C#4", "A3", "F3", "C#3"],
     Cs5: ["C#3", "G#3", "C#4"],
     Cssus4: ["C#3", "F#3", "C#4", "F#4", "G#4"],
+    Cssus2: ["C#3", "D#3", "G#3", "C#4"],
     // Cb
     Cb: ["Cb3", "Gb3", "Cb4", "Eb4", "Gb4"],
     Cbm: ["Cb3", "Gb3", "Cb4", "D4", "Gb4"],
@@ -50,6 +52,7 @@ const chordMap = {
     Cbaug: ["G4", "B3", "G3", "Eb3", "B2"],
     Cb5: ["B2", "Gb3", "B3"],
     Cbsus4: ["B2", "E3", "B3", "E4", "Gb4"],
+    Cbsus2: ["B2", "Gb3", "B3", "Db4", "Gb4"],
     // D
     D: ["D3", "A3", "D4", "F#4"],
     Dm: ["D3", "A3", "D4", "F4"],
@@ -57,6 +60,7 @@ const chordMap = {
     Daug: ["F#4", "D4", "A#3", "D3"],
     D5: ["D3", "A3", "D4", "A4"],
     Dsus4: ["D3", "G3", "D4", "A4"],
+    Dsus2: ["D3", "A3", "D4", "E4"],
     // Ds
     Ds: ["D#3", "A#3", "D#4", "G4"],
     Dsm: ["D#3", "A#3", "D#4", "F#4"],
@@ -64,6 +68,7 @@ const chordMap = {
     Dsaug: ["G4", "B3", "G3", "D#3"],
     Ds5: ["D#3", "A#3", "D#4"],
     Dssus4: ["D#3", "A#3", "D#4", "G#4"],
+    Dssus2: ["D#3", "A#3", "D#4", "F4"],
     // Db
     Db: ["Db3", "F3", "Ab3", "Db4", "F4"],
     Dbm: ["Db3", "Ab3", "Db4", "E4", "Ab4"],
@@ -71,6 +76,7 @@ const chordMap = {
     Dbaug: ["A4", "Db4", "A3", "F3", "Db3"],
     Db5: ["Db3", "Ab3", "Db4"],
     Dbsus4: ["Db3", "Gb3", "Db4", "Gb4", "Ab4"],
+    Dbsus2: ["Db3", "Eb3", "Ab3", "Db4"],
     // E
     E: ["E2", "B2", "E3", "G#3", "B3", "E4"],
     Em: ["E2", "B2", "E3", "G3", "B3", "E4"],
@@ -78,6 +84,7 @@ const chordMap = {
     Eaug: ["G#4", "C4", "G#3", "E3", "C3", "E2"],
     E5: ["E2", "B2", "E3"],
     Esus4: ["E2", "A2", "E3", "A3", "B3", "E4"],
+    Esus2: ["E2", "B2", "E3", "B3", "E4", "F#4"],
     // Es
     Es: ["E#2", "B#2", "E#3", "A3", "B#3", "E#4"],
     Esm: ["E#2", "B#2", "E#3", "G#3", "B#3", "E#4"],
@@ -85,6 +92,7 @@ const chordMap = {
     Esaug: ["C#4", "A3", "F3", "A2", "F2"],
     Es5: ["F2", "C3", "F3"],
     Essus4: ["F2", "A#2", "F3", "A#3", "C4", "F4"],
+    Essus2: ["F3", "G3", "C4", "F4"],
     // Eb
     Eb: ["Eb3", "Bb3", "Eb4", "G4"],
     Ebm: ["Eb3", "Bb3", "Eb4", "Gb4"],
@@ -92,6 +100,7 @@ const chordMap = {
     Ebaug: ["G4", "B3", "G3", "Eb3"],
     Eb5: ["Eb3", "Bb3", "Eb4"],
     Ebsus4: ["Eb3", "Bb3", "Eb4", "Ab4"],
+    Ebsus2: ["Eb3", "Bb3", "Eb4", "F4"],
     // F
     F: ["F2", "C3", "F3", "A3", "C4", "F4"],
     Fm: ["F2", "C3", "F3", "Ab3", "C4", "F4"],
@@ -99,6 +108,7 @@ const chordMap = {
     Faug: ["C#4", "A3", "F3", "A2", "F2"],
     F5: ["F2", "C3", "F3"],
     Fsus4: ["F4", "C4", "Bb3", "F3", "Bb2", "F2"],
+    Fsus2: ["F3", "G3", "C4", "F4"],
     // Fs
     Fs: ["F#2", "C#3", "F#3", "A#3", "C#4", "F#4"],
     Fsm: ["F#2", "C#3", "F#3", "A3", "C#4", "F#4"],
@@ -106,6 +116,7 @@ const chordMap = {
     Fsaug: ["D4", "A#3", "D3", "A#2", "F#2"],
     Fs5: ["F#2", "C#3", "F#3"],
     Fssus4: ["F#4", "C#4", "B3", "F#3", "B2", "F#2"],
+    Fssus2: ["F#3", "G#3", "C#4"],
     // Fb
     Fb: ["Fb2", "Cb3", "Fb3", "Ab3", "Cb4", "Fb4"],
     Fbm: ["Fb2", "Cb3", "Fb3", "G3", "Cb4", "Fb4"],
@@ -113,6 +124,7 @@ const chordMap = {
     Fbaug: ["Ab4", "C4", "Ab3", "E3", "C3", "E2"],
     Fb5: ["E2", "B2", "E3"],
     Fbsus4: ["E2", "A2", "E3", "A3", "B3", "E4"],
+    Fbsus2: ["E2", "B2", "E3", "B3", "E4", "Gb4"],
     // G
     G: ["G2", "B2", "D3", "G3", "B3", "G4"],
     Gm: ["G2", "Bb2", "D3", "G3", "D4", "G4"],
@@ -120,6 +132,7 @@ const chordMap = {
     Gaug: ["G4", "B3", "G3", "D#3", "B2", "G2"],
     G5: ["G2", "D3", "G3"],
     Gsus4: ["G2", "C3", "D3", "G3", "D4", "G4"],
+    Gsus2: ["G2", "A2", "D3", "G3", "D4", "G4"],
     // Gs
     Gs: ["G#2", "D#3", "G#3", "C4", "D#4", "G#4"],
     Gsm: ["G#2", "D#3", "G#3", "B3", "D#4", "G#4"],
@@ -127,6 +140,7 @@ const chordMap = {
     Gsaug: ["C4", "G#3", "E3", "C3", "G#2"],
     Gs5: ["G#2", "D#3", "G#3"],
     Gssus4: ["G#2", "D#3", "G#3", "C#4", "D#4", "G#4"],
+    Gssus2: ["G#2", "A#2", "D#3", "A#3", "D#4"],
     // Gb
     Gb: ["Gb2", "Db3", "Gb3", "Bb3", "Db4", "Gb4"],
     Gbm: ["Gb2", "Db3", "Gb3", "A3", "Db4", "Gb4"],
@@ -134,6 +148,7 @@ const chordMap = {
     Gbaug: ["D4", "Bb3", "D3", "Bb2", "Gb2"],
     Gb5: ["Gb2", "Db3", "Gb3"],
     Gbsus4: ["Gb2", "B2", "Gb3", "B3", "Db4", "Gb4"],
+    Gbsus2: ["Gb3", "Ab3", "Db4"],
     // A
     A: ["A2", "E3", "A3", "C#4", "E4"],
     Am: ["A2", "E3", "A3", "C4", "E4"],
@@ -141,6 +156,7 @@ const chordMap = {
     Aaug: ["F4", "C#4", "A3", "F3", "A2"],
     A5: ["A2", "E3", "A3"],
     Asus4: ["A2", "E3", "A3", "D4", "E4"],
+    Asus2: ["A2", "E3", "A3", "B3", "E4"],
     // As
     As: ["A#2", "E#3", "A#3", "D4", "E#4"],
     Asm: ["A#2", "E#3", "A#3", "C#4", "E#4"],
@@ -148,6 +164,7 @@ const chordMap = {
     Asaug: ["F#4", "D4", "A#3", "D3", "A#2"],
     As5: ["A#2", "F3", "A#3"],
     Assus4: ["A#2", "D#3", "A#3", "D#4", "F4"],
+    Assus2: ["A#2", "F3", "A#3", "C4", "F4"],
     // Ab
     Ab: ["Ab2", "Eb3", "Ab3", "C4", "Eb4", "Ab4"],
     Abm: ["Ab2", "Eb3", "Ab3", "Cb4", "Eb4", "Ab4"],
@@ -155,6 +172,7 @@ const chordMap = {
     Abaug: ["C4", "Ab3", "E3", "C3", "Ab2"],
     Ab5: ["Ab2", "Eb3", "Ab3"],
     Absus4: ["Ab2", "Eb3", "Ab3", "Db4", "Eb4", "Ab4"],
+    Absus2: ["Ab2", "Bb2", "Eb3", "Bb3", "Eb4"],
     // B
     B: ["B2", "F#3", "B3", "D#4", "F#4"],
     Bm: ["B2", "F#3", "B3", "D4", "F#4"],
@@ -162,6 +180,7 @@ const chordMap = {
     Baug: ["G4", "B3", "G3", "D#3", "B2"],
     B5: ["B2", "F#3", "B3"],
     Bsus4: ["B2", "E3", "B3", "E4", "F#4"],
+    Bsus2: ["B2", "F#3", "B3", "C#4", "F#4"],
     // Bs
     Bs: ["B#2", "E3", "B#3", "G3", "E4"],
     Bsm: ["B#2", "G3", "B#3", "D#4", "G4"],
@@ -169,6 +188,7 @@ const chordMap = {
     Bsaug: ["G#4", "C4", "G#3", "E3", "C3"],
     Bs5: ["C3", "G3", "C4"],
     Bssus4: ["C3", "F3", "G3", "C4", "F4"],
+    Bssus2: ["C3", "D3", "G3", "D4", "G4"],
     // Bb
     Bb: ["Bb2", "F3", "Bb3", "D4", "F4"],
     Bbm: ["Bb2", "F3", "Bb3", "Db4", "F4"],
@@ -176,6 +196,7 @@ const chordMap = {
     Bbaug: ["F#4", "D4", "Bb3", "D3", "Bb2"],
     Bb5: ["Bb2", "F3", "Bb3"],
     Bbsus4: ["Bb2", "Eb3", "Bb3", "Eb4", "F4"],
+    Bbsus2: ["Bb2", "F3", "Bb3", "C4", "F4"],
 };
 
 // 調と音階のマップ
