@@ -4,27 +4,55 @@ const polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
 var now = null;
 var currentNoteNames = null;
 
+var selectedScaleNo = 1;
+
+function isMinor(scaleNo) {
+    return scaleNo > 3;
+}
+
 /* 初期化処理 */
 function initialize() {
 
     // イベント設定
-    document.getElementById('major_scale_select').addEventListener('change', (e) => {
-        setScale(e, 'selected_major_scale', false);
+    document.getElementById('scale_select1').addEventListener('change', (e) => {
+        setScale(e, 'selected_scale1', 1);
     });
-    document.getElementById('minor_scale_select').addEventListener('change', (e) => {
-        setScale(e, 'selected_minor_scale', true);
+    document.getElementById('scale_select2').addEventListener('change', (e) => {
+        setScale(e, 'selected_scale2', 2);
     });
+    document.getElementById('scale_select3').addEventListener('change', (e) => {
+        setScale(e, 'selected_scale3', 3);
+    });
+    // 4,5番目はマイナースケール
+    document.getElementById('scale_select4').addEventListener('change', (e) => {
+        setScale(e, 'selected_scale4', 4);
+    });
+    document.getElementById('scale_select5').addEventListener('change', (e) => {
+        setScale(e, 'selected_scale5', 5);
+    });
+
+    // document.getElementById('major_scale_select').addEventListener('change', (e) => {
+    //     setScale(e, 'selected_major_scale', false);
+    // });
+    // document.getElementById('minor_scale_select').addEventListener('change', (e) => {
+    //     setScale(e, 'selected_minor_scale', true);
+    // });
 
     window.addEventListener("load", () => {
         setChordButtonEvent();
     });
 
     // 調の初期値
-    document.getElementById('major_scale_select').value = 'C';
-    document.getElementById('major_scale_select').dispatchEvent(new Event('change'));
-    document.getElementById('minor_scale_select').value = 'Am';
-    document.getElementById('minor_scale_select').dispatchEvent(new Event('change'));
-
+    document.getElementById('scale_select1').value = 'C';
+    document.getElementById('scale_select1').dispatchEvent(new Event('change'));
+    document.getElementById('scale_select2').value = 'F';
+    document.getElementById('scale_select2').dispatchEvent(new Event('change'));
+    document.getElementById('scale_select3').value = 'G';
+    document.getElementById('scale_select3').dispatchEvent(new Event('change'));
+    document.getElementById('scale_select4').value = 'Am';
+    document.getElementById('scale_select4').dispatchEvent(new Event('change'));
+    document.getElementById('scale_select5').value = 'Cm';
+    document.getElementById('scale_select5').dispatchEvent(new Event('change'));
 }
 
 function play(noteNames) {
@@ -44,7 +72,7 @@ function clearChordProgression() {
     document.getElementById('chordProgression').innerHTML = "";
 }
 
-function setScale(event, id, isMinor) {
+function setScale(event, id, scaleNo) {
     // 子要素を全て削除
     while (document.getElementById(id).firstChild) {
         document.getElementById(id).removeChild(document.getElementById(id).firstChild)
@@ -64,8 +92,8 @@ function setScale(event, id, isMinor) {
         b.classList.remove('chordBoxButton');
         b.classList.add('chordButton');
         // 生成したコードボタンにidを設定
-        b.id = 'chord' + String(no);
-        if (isMinor) {
+        b.id = 'chord' + String(no) + String(scaleNo);
+        if (isMinor(scaleNo)) {
             b.id = 'm' + b.id;
         }
         no++;

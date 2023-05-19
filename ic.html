@@ -111,37 +111,56 @@
                 <div class="cell">Ⅵ</div>
                 <div class="cell">Ⅶ</div>
             </div>
-            <div id="selected_major_scale" class="container">
+            <div id="selected_scale1" class="container">
+            </div>
+            <div id="selected_scale2" class="container">
+            </div>
+            <div id="selected_scale3" class="container">
+            </div>
+            <div id="selected_scale4" class="container">
+            </div>
+            <div id="selected_scale5" class="container">
+            </div>
+
+            <!-- <div id="selected_major_scale" class="container">
             </div>
             <div id="selected_minor_scale" class="container">
-            </div>
+            </div> -->
         </div>
         <div id="settings">
             <div>
                 <input type="radio" id="rdnone" , name="add_chord" value="" checked>
                 <label class="rdLabel" for="rdnone">none</label>
-                <input type="radio" id="rdaug" name="add_chord" value="rdaug">
-                <label class="rdLabel" for="rdaug">aug</label>
+                <input type="radio" id="rdsus2" name="add_chord" value="rdsus2">
+                <label class="rdLabel" for="rdsus2">sus2</label>
+                <input type="radio" id="rdsus4" name="add_chord" value="rdsus4">
+                <label class="rdLabel" for="rdsus4">sus4</label>
+                <input type="radio" id="rd7sus4" name="add_chord" value="rd7sus4">
+                <label class="rdLabel" for="rd7sus4">7sus4</label>
+                <input type="radio" id="rd5" name="add_chord" value="rd5">
+                <label class="rdLabel" for="rd5">5</label>
+                <input type="radio" id="rd6" name="add_chord" value="rd6">
+                <label class="rdLabel" for="rd6">6</label>
                 <input type="radio" id="rd7" name="add_chord" value="rd7">
                 <label class="rdLabel" for="rd7">7</label>
                 <input type="radio" id="rdmaj7" name="add_chord" value="rdmaj7">
                 <label class="rdLabel" for="rdmaj7">maj7</label>
-                <input type="radio" id="rd6" name="add_chord" value="rd6">
-                <label class="rdLabel" for="rd6">6</label>
                 <input type="radio" id="rd9" name="add_chord" value="rd9">
                 <label class="rdLabel" for="rd9">9</label>
                 <input type="radio" id="rdmaj9" name="add_chord" value="rdmaj9">
                 <label class="rdLabel" for="rdmaj9">maj9</label>
+            </div>
+            <div>
                 <input type="radio" id="rd11" name="add_chord" value="rd11">
                 <label class="rdLabel" for="rd11">11</label>
                 <input type="radio" id="rdmaj11" name="add_chord" value="rdmaj11">
                 <label class="rdLabel" for="rdmaj11">maj11</label>
-            </div>
-            <div>
                 <input type="radio" id="rd13" name="add_chord" value="rd13">
                 <label class="rdLabel" for="rd13">13</label>
                 <input type="radio" id="rdmaj13" name="add_chord" value="rdmaj13">
                 <label class="rdLabel" for="rdmaj13">maj13</label>
+                <input type="radio" id="rdaug" name="add_chord" value="rdaug">
+                <label class="rdLabel" for="rdaug">aug</label>
                 <input type="radio" id="rdadd9" name="add_chord" value="rdadd9">
                 <label class="rdLabel" for="rdadd9">add9</label>
                 <input type="radio" id="rd69" name="add_chord" value="rd69">
@@ -152,17 +171,104 @@
                 <label class="rdLabel" for="rd7b9">7b9</label>
                 <input type="radio" id="rd7s9" name="add_chord" value="rd7s9">
                 <label class="rdLabel" for="rd7s9">7s9</label>
-                <input type="radio" id="rd5" name="add_chord" value="rd5">
-                <label class="rdLabel" for="rd5">5</label>
-                <input type="radio" id="rdsus4" name="add_chord" value="rdsus4">
-                <label class="rdLabel" for="rdsus4">sus4</label>
-                <input type="radio" id="rdsus2" name="add_chord" value="rdsus2">
-                <label class="rdLabel" for="rdsus2">sus2</label>
-                <input type="radio" id="rd7sus4" name="add_chord" value="rd7sus4">
-                <label class="rdLabel" for="rd7sus4">7sus4</label>
             </div>
             <div class="container">
                 <div class="cell">
+                    <select id="scale_select1">
+                        <option value="Cb">Cb</option>
+                        <option value="C">C</option>
+                        <option value="Cs">C#</option>
+                        <option value="Db">Db</option>
+                        <option value="D">D</option>
+                        <option value="Eb">Eb</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="Fs">F#</option>
+                        <option value="Gb">Gb</option>
+                        <option value="G">G</option>
+                        <option value="Ab">Ab</option>
+                        <option value="A">A</option>
+                        <option value="Bb">Bb</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <select id="scale_select2">
+                        <option value="Cb">Cb</option>
+                        <option value="C">C</option>
+                        <option value="Cs">C#</option>
+                        <option value="Db">Db</option>
+                        <option value="D">D</option>
+                        <option value="Eb">Eb</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="Fs">F#</option>
+                        <option value="Gb">Gb</option>
+                        <option value="G">G</option>
+                        <option value="Ab">Ab</option>
+                        <option value="A">A</option>
+                        <option value="Bb">Bb</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <select id="scale_select3">
+                        <option value="Cb">Cb</option>
+                        <option value="C">C</option>
+                        <option value="Cs">C#</option>
+                        <option value="Db">Db</option>
+                        <option value="D">D</option>
+                        <option value="Eb">Eb</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="Fs">F#</option>
+                        <option value="Gb">Gb</option>
+                        <option value="G">G</option>
+                        <option value="Ab">Ab</option>
+                        <option value="A">A</option>
+                        <option value="Bb">Bb</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <select id="scale_select4">
+                        <option value="Cm">Cm</option>
+                        <option value="Cms">Cm#</option>
+                        <option value="Dm">Dm</option>
+                        <option value="Dms">Dm#</option>
+                        <option value="Emb">Emb</option>
+                        <option value="Em">Em</option>
+                        <option value="Fm">Fm</option>
+                        <option value="Fms">Fm#</option>
+                        <option value="Gm">Gm</option>
+                        <option value="Gms">Gm#</option>
+                        <option value="Amb">Amb</option>
+                        <option value="Am">Am</option>
+                        <option value="Ams">Am#</option>
+                        <option value="Bmb">Bmb</option>
+                        <option value="Bm">Bm</option>
+                    </select>
+                </div>
+                <div class="cell">
+                    <select id="scale_select5">
+                        <option value="Cm">Cm</option>
+                        <option value="Cms">Cm#</option>
+                        <option value="Dm">Dm</option>
+                        <option value="Dms">Dm#</option>
+                        <option value="Emb">Emb</option>
+                        <option value="Em">Em</option>
+                        <option value="Fm">Fm</option>
+                        <option value="Fms">Fm#</option>
+                        <option value="Gm">Gm</option>
+                        <option value="Gms">Gm#</option>
+                        <option value="Amb">Amb</option>
+                        <option value="Am">Am</option>
+                        <option value="Ams">Am#</option>
+                        <option value="Bmb">Bmb</option>
+                        <option value="Bm">Bm</option>
+                    </select>
+                </div>
+                <!-- <div class="cell">
                     <select id="major_scale_select">
                         <option value="Cb">Cb</option>
                         <option value="C">C</option>
@@ -199,13 +305,13 @@
                         <option value="Bmb">Bmb</option>
                         <option value="Bm">Bm</option>
                     </select>
-                </div>
+                </div> -->
             </div>
             <div>
-                <input type="radio" id="major_radio" , name="major_or_minor" value="0" checked>
+                <!-- <input type="radio" id="major_radio" , name="major_or_minor" value="0" checked>
                 <label for="major_radio">メジャー</label>
                 <input type="radio" id="minor_radio" , name="major_or_minor" value="1">
-                <label for="minor_radio">マイナー</label>
+                <label for="minor_radio">マイナー</label> -->
                 <button id="stopButton" onclick="stop()">STOP</button>
                 <button id="clearButton" onclick="clearChordProgression()">CLEAR</button>
             </div>
