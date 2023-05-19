@@ -13,7 +13,6 @@ function keydown(event) {
         scaleChange('ArrowUp' == event.key);
         return;
     }
-    console.log('here----------------');
     // コード演奏の場合
     let keys = Object.keys(keyboardMap);
     for (let i = 0; i < keys.length; i++) {
@@ -33,9 +32,6 @@ function keydown(event) {
                 let element = document.getElementById(keys[i]);
                 let id = keys[i];
                 if (element.type == 'button' || element.type == 'reset' || element.type == 'submit') {
-                    // if (isMinor(selectedScaleNo)) {
-                    //     id = 'm' + id;
-                    // }
                     document.getElementById(id).dispatchEvent(new Event('click'));
                 }
                 else if (element.type == 'radio') {
@@ -45,45 +41,10 @@ function keydown(event) {
                     if (save) document.getElementById('rdnone').checked = true;
                 }
             }
-            // else if (document.getElementsByName(keys[i])) {
-            //     // メジャーマイナー切り替え処理
-            //     let elements = document.getElementsByName(keys[i]);
-            //     let isRadio = false;
-            //     elements.forEach(e => {
-            //         if (e.type = 'radio') {
-            //             isRadio = true;
-            //         }
-            //     });
-            //     if (isRadio) {
-            //         toggle(elements);
-            //     }
-            // }
-            // else {
-            //     if (keys[i] == 'pgup') console.log('pgup');
-            //     else if (keys[i] == 'pgdn') console.log('pgdn');
-            // }
             return;
         }
     }
 }
-
-// function toggle(radioButtons) {
-//     let flag = false;
-//     for (let i = 0; i < radioButtons.length; i++) {
-//         if (radioButtons[i].checked) {
-//             radioButtons[i].checked = false;
-//             flag = true;
-//         }
-//         else if (flag) {
-//             radioButtons[i].checked = true;
-//             flag = false;
-//             break;
-//         }
-//     }
-//     if (flag) {
-//         radioButtons[0].checked = true;
-//     }
-// }
 
 function scaleChange(up) {
     if (up) {

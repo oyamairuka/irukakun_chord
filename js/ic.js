@@ -31,13 +31,6 @@ function initialize() {
         setScale(e, 'selected_scale5', 5);
     });
 
-    // document.getElementById('major_scale_select').addEventListener('change', (e) => {
-    //     setScale(e, 'selected_major_scale', false);
-    // });
-    // document.getElementById('minor_scale_select').addEventListener('change', (e) => {
-    //     setScale(e, 'selected_minor_scale', true);
-    // });
-
     window.addEventListener("load", () => {
         setChordButtonEvent();
     });
